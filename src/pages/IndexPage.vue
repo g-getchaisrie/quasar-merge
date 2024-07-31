@@ -36,6 +36,16 @@
           val => val > 0 && val < 100 || 'Please type a real age'
         ]"
       />
+    <!-- id -->
+      <q-input
+        filled
+        v-model="id"
+        label="Your ID *"
+        hint="Enter your ID"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || 'Please type your ID']"
+      />
+
 
       <q-toggle v-model="accept" label="I accept the license and terms" />
 
@@ -55,7 +65,7 @@ import { ref } from 'vue'
 export default {
   setup () {
     const $q = useQuasar()
-
+    const id = ref("6604101320")
     const name = ref("ชิณวัฒน์")
     const surname = ref("ตันติสิทธิพร")
     const age = ref("21")
@@ -65,6 +75,7 @@ export default {
       name,
       surname,
       age,
+      id,
       accept,
 
       onSubmit () {
